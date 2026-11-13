@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Wilson & Angelia — Wedding Day Run-down</title>
+<style>
+:root{
+  --bg:#faf7f2; --surface:#ffffff; --ink:#2b2622; --muted:#6f655c; --line:#e8dfd3;
+  --accent:#a8383a; --accent-ink:#ffffff; --ok:#2b7a4b; --ok-bg:#e6f3ea;
+  --warn-bg:#fff3d1; --warn-ink:#5f4300; --chip:#f1e9dd; --shadow:0 1px 2px rgba(60,40,20,.08);
+  color-scheme: light;
+  box-sizing:border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#171412; --surface:#221e1b; --ink:#f3ece4; --muted:#b2a69a; --line:#38322c;
+    --accent:#e57a76; --accent-ink:#1a1210; --ok:#6fcb92; --ok-bg:#1e3326;
+    --warn-bg:#3b2f10; --warn-ink:#f3d98f; --chip:#2e2824; --shadow:none;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#171412; --surface:#221e1b; --ink:#f3ece4; --muted:#b2a69a; --line:#38322c;
+  --accent:#e57a76; --accent-ink:#1a1210; --ok:#6fcb92; --ok-bg:#1e3326;
+  --warn-bg:#3b2f10; --warn-ink:#f3d98f; --chip:#2e2824; --shadow:none;
+  color-scheme: dark;
+}
+html{ scroll-padding-top: env(safe-area-inset-top, 0px); -webkit-text-size-adjust:100%; }
+*,*::before,*::after{ box-sizing:border-box; }
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font:16px/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+#app{ max-width:560px; margin:0 auto; padding:16px 14px 90px; }
+h1,h2,h3{ margin:0; line-height:1.2; }
+a{ color:inherit; }
+.serif{ font-family: Georgia, "Times New Roman", serif; }
+.hero{ padding:18px 4px 6px; }
+.hero h1{ font-size:30px; letter-spacing:-.3px; }
+.hero p{ margin:6px 0 0; color:var(--muted); }
+.group{ margin-top:22px; }
+.group h2{ font-size:13px; text-transform:uppercase; letter-spacing:.08em; color:var(--muted); margin:0 4px 8px; font-weight:700; }
+.grid{ display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+.person-btn{
+  display:flex; flex-direction:column; gap:4px; text-decoration:none;
+  background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:14px 14px 12px;
+  min-height:76px; box-shadow:var(--shadow);
+}
+.person-btn:active{ transform:scale(.98); }
+.person-btn b{ font-size:18px; }
+.person-btn small{ color:var(--muted); font-size:13px; }
+.mini-bar{ height:5px; background:var(--chip); border-radius:3px; overflow:hidden; margin-top:4px; }
+.mini-bar i{ display:block; height:100%; background:var(--ok); width:0; }
+.links{ display:flex; gap:10px; margin-top:26px; }
+.links a{ flex:1; text-align:center; padding:14px 10px; border:1px solid var(--line); border-radius:12px; text-decoration:none; background:var(--surface); font-weight:600; }
+.tip{ margin-top:22px; background:var(--chip); border-radius:12px; padding:12px 14px; font-size:14px; color:var(--muted); }
+.tip b{ color:var(--ink); }
+.topbar{ display:flex; align-items:center; gap:10px; margin-bottom:10px; }
+.back{ text-decoration:none; font-weight:600; padding:8px 12px 8px 4px; color:var(--accent); }
+.head{ background:var(--surface); border:1px solid var(--line); border-radius:16px; padding:16px; box-shadow:var(--shadow); }
+.head h1{ font-size:28px; }
+.role{ color:var(--muted); margin-top:2px; }
+.progress{ margin-top:14px; }
+.progress .row{ display:flex; justify-content:space-between; font-weight:600; font-size:15px; }
+.bar{ height:10px; background:var(--chip); border-radius:6px; overflow:hidden; margin-top:6px; }
+.bar i{ display:block; height:100%; background:var(--ok); width:0; transition:width .25s; }
+.actions{ display:flex; gap:8px; margin-top:14px; flex-wrap:wrap; }
+.btn{
+  appearance:none; border:1px solid var(--line); background:var(--surface); color:var(--ink);
+  border-radius:12px; padding:12px 14px; font:inherit; font-weight:600; min-height:46px; cursor:pointer;
+}
+.btn.primary{ background:var(--accent); color:var(--accent-ink); border-color:var(--accent); flex:1; }
+.btn.ghost{ background:transparent; }
+.banner{ margin-top:12px; background:var(--warn-bg); color:var(--warn-ink); border-radius:12px; padding:10px 12px; font-size:14px; }
+.carbox{ margin-top:12px; background:var(--chip); border-radius:12px; padding:10px 12px; font-size:14px; }
+.phase{ margin:24px 4px 8px; font-size:13px; text-transform:uppercase; letter-spacing:.08em; color:var(--muted); font-weight:700; }
+.task{
+  display:flex; gap:12px; align-items:flex-start;
+  background:var(--surface); border:1px solid var(--line); border-radius:16px; padding:12px; margin-bottom:10px; box-shadow:var(--shadow);
+}
+.task.next{ border:2px solid var(--accent); padding:11px; }
+.task.done{ background:var(--ok-bg); border-color:transparent; }
+.task.done h3, .task.done ul, .task.done .bring, .task.done .with{ opacity:.6; }
+.task.done h3{ text-decoration:line-through; text-decoration-thickness:1px; }
+.check{
+  flex:0 0 auto; width:48px; height:48px; border-radius:14px; border:2.5px solid var(--muted);
+  background:transparent; color:transparent; font-size:26px; line-height:1; cursor:pointer; padding:0;
+  display:flex; align-items:center; justify-content:center; font-weight:700;
+}
+.task.done .check{ background:var(--ok); border-color:var(--ok); color:#fff; }
+.body{ flex:1; min-width:0; }
+.meta{ display:flex; flex-wrap:wrap; gap:6px 10px; align-items:center; font-size:14px; }
+.time{ background:var(--accent); color:var(--accent-ink); padding:2px 9px; border-radius:99px; font-weight:700; }
+.task.done .time{ background:var(--muted); }
+.place{ color:var(--muted); }
+.badge{ font-size:12px; font-weight:700; color:var(--accent); text-transform:uppercase; letter-spacing:.06em; }
+.body h3{ font-size:18px; margin:6px 0 4px; }
+.body ul{ margin:4px 0 0; padding-left:20px; }
+.body li{ margin:3px 0; }
+.bring, .with, .flag, .donetime{ margin-top:8px; font-size:14px; }
+.bring{ background:var(--chip); border-radius:10px; padding:7px 10px; }
+.with{ color:var(--muted); }
+.flag{ background:var(--warn-bg); color:var(--warn-ink); border-radius:10px; padding:7px 10px; }
+.donetime{ color:var(--ok); font-weight:600; }
+.footer-actions{ margin-top:26px; display:flex; flex-direction:column; gap:10px; }
+.empty{ text-align:center; color:var(--muted); padding:30px 10px; }
+.tl{ background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:12px; margin-bottom:10px; }
+.tl .meta{ margin-bottom:4px; }
+.tl h3{ font-size:17px; margin-bottom:6px; }
+.chips{ display:flex; flex-wrap:wrap; gap:6px; }
+.chip{ background:var(--chip); border-radius:99px; padding:3px 10px; font-size:13px; text-decoration:none; }
+.contact{ display:flex; justify-content:space-between; align-items:center; gap:10px; background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:10px 12px; margin-bottom:8px; }
+.contact small{ display:block; color:var(--muted); }
+.call{ text-decoration:none; background:var(--ok); color:#fff; padding:10px 14px; border-radius:10px; font-weight:700; white-space:nowrap; }
+.overlay{ position:fixed; inset:0; background:rgba(0,0,0,.45); display:flex; align-items:flex-end; justify-content:center; z-index:50; }
+.sheet{ background:var(--bg); width:100%; max-width:560px; border-radius:20px 20px 0 0; padding:16px 14px calc(16px + env(safe-area-inset-bottom, 0px)); max-height:88vh; overflow:auto; }
+.sheet h2{ font-size:20px; margin-bottom:4px; }
+.sheet p{ margin:0 0 10px; color:var(--muted); font-size:14px; }
+.sheet textarea{ width:100%; min-height:200px; border:1px solid var(--line); border-radius:12px; padding:10px; font:14px/1.4 ui-monospace, Menlo, monospace; background:var(--surface); color:var(--ink); }
+.sheet .actions .btn{ flex:1; text-align:center; text-decoration:none; }
+.toast{ position:fixed; left:50%; transform:translateX(-50%); bottom:calc(24px + env(safe-area-inset-bottom, 0px)); background:var(--ink); color:var(--bg); padding:10px 16px; border-radius:99px; font-weight:600; z-index:60; }
+</style>
+</head>
+<body>
+<div id="app"></div>
+
+<script>
+(function(){
+"use strict";
+
+var BM = ["Jolene","Yuri","Mindy","Sheryl","Shanice","Kim"];
+var GM = ["Yong-Sen","Emil","Sabrina","Lennon","Eric"];
+
+var PEOPLE = {
+  "Wilson":    {name:"Wilson",       role:"Groom",                        grp:"Couple",       car:1, phone:"92238467", full:"Wilson Ng"},
+  "Angelia":   {name:"Angelia",      role:"Bride",                        grp:"Couple",       car:1, phone:"96223052", full:"Angelia Lim"},
+  "Jolene":    {name:"Jolene",       role:"Bridesmaid",                   grp:"Bridesmaids",  car:1, phone:"93219797", full:"Jolene Chiang", bm:1},
+  "Yuri":      {name:"Yuri",         role:"Bridesmaid · Gatecrash IC",    grp:"Bridesmaids",  car:3, phone:"83834894", full:"Yuri", bm:1},
+  "Mindy":     {name:"Mindy",        role:"Bridesmaid · Gatecrash IC · Vendors", grp:"Bridesmaids", car:3, phone:"85006900", full:"Mindy Boo", bm:1},
+  "Sheryl":    {name:"Sheryl",       role:"Bridesmaid · Timekeeper",      grp:"Bridesmaids",  car:4, phone:"92299899", full:"Sheryl Chong", bm:1},
+  "Shanice":   {name:"Shanice",      role:"Bridesmaid",                   grp:"Bridesmaids",  car:4, phone:"91014028", full:"Shanice Lim", bm:1},
+  "Kim":       {name:"Kim",          role:"Bridesmaid",                   grp:"Bridesmaids",  car:4, phone:"91451740", full:"Kimberly Wong", bm:1},
+  "Yong-Sen":  {name:"Yong Sen (YS)",role:"Groomsman · Ang Pao IC",       grp:"Groomsmen",    car:1, phone:"90607795", full:"Yong Sen", gm:1},
+  "Emil":      {name:"Emil",         role:"Groomsman · Main Liaison",     grp:"Groomsmen",    car:2, phone:"91099666", full:"Emil", gm:1},
+  "Sabrina":   {name:"Sabrina",      role:"Groomsman · Game & DIY booth", grp:"Groomsmen",    car:2, phone:"92206292", full:"Sabrina", gm:1},
+  "Lennon":    {name:"Lennon",       role:"Groomsman · AV",               grp:"Groomsmen",    car:3, phone:"97343513", full:"Lennon", gm:1},
+  "Eric":      {name:"Eric",         role:"Groomsman · AV",               grp:"Groomsmen",    car:3, phone:"97256398", full:"Eric", gm:1},
+  "Cynthia":   {name:"Cynthia",      role:"Tea ceremony emcee",           grp:"Helpers",      full:"Cynthia Lim"},
+  "Sindy":     {name:"Sindy",        role:"Helper · Reception & Bride’s side", grp:"Helpers", full:"Sindy Lim"},
+  "Jun-Hearn": {name:"Jun Hearn (JH)",role:"Helper · Groom’s side",       grp:"Helpers",      full:"Jun Hearn"},
+  "Ying-Xiang":{name:"Ying Xiang (YX)",role:"Car door opener",            grp:"Helpers",      full:"Ying Xiang"},
+  "Auggie":    {name:"Auggie",       role:"Car boy",                      grp:"Helpers",      full:"Auggie"},
+  "Wen-Wen":   {name:"Wen Wen",      role:"Emcee (vendor)",               grp:"Vendors",      phone:"94592555", full:"Ong Wenwen"},
+  "Jovic":     {name:"Jovic",        role:"Photographer (vendor)",        grp:"Vendors",      phone:"97962445", full:"Jovic"},
+  "Eric-Yong": {name:"Eric Yong",    role:"Videographer (vendor)",        grp:"Vendors",      phone:"91874066", full:"Eric Yong"}
+};
+var GROUP_ORDER = ["Couple","Bridesmaids","Groomsmen","Helpers","Vendors"];
+
+var CARS = {
+  1:{title:"Car #1 — Main bridal car", members:["Wilson","Angelia","Jolene","Yong-Sen"], note:"YS drives"},
+  2:{title:"Car #2 — SLN2967G", members:["Emil","Sabrina"], note:"Goes straight to the hotel from the Bride’s House (advance party)"},
+  3:{title:"Car #3 — Lennon’s car", members:["Lennon","Eric","Yuri","Mindy"], note:"Lennon drives"},
+  4:{title:"Car #4 — Greenie SJP1034T", members:["Sheryl","Shanice","Kim"], note:"Goes straight to the hotel from the Bride’s House (advance party)"}
+};
+
+var PH = {
+  A:"Before the day",
+  B:"Early morning",
+  C:"Gatecrash & receiving the bride",
+  D:"Travel & Groom’s House",
+  E:"Hotel — photos, set-up & tea ceremony",
+  F:"Cocktail",
+  G:"Banquet"
+};
+
+var GCIC = {a:["Gatecrash IC: you and Mindy run the games."]};
+var GCIC2 = {a:["Gatecrash IC: you and Yuri run the games."]};
+var PICS = {a:["Take pictures, videos and BTS vlogs."]};
+var EV = [
+{id:"pack", t:0, label:"Night before", place:"At home", ph:"A", title:"Pack your gear",
+ who:["Lennon","Yong-Sen","Sindy","Cynthia"],
+ s:["Bring your laptop and charger (for the reception registration counter)."],
+ per:{"Cynthia":{s:["Bring your iPad."]}}},
+
+{id:"bride-wake", t:240, label:"4:00 AM", place:"Bride’s House", ph:"B", title:"Get ready — make-up & first gown",
+ who:["Angelia"],
+ s:["Wake up, bathe and have a light breakfast.","Change into an outfit with a button-up top.","Make-up and change into your first gown, 4:00–6:00 AM, with the make-up artists."]},
+
+{id:"bm-arrive", t:345, label:"5:45 AM", place:"Bride’s House", ph:"B", title:"Arrive at Bride’s House & stand by",
+ who:["BM"],
+ s:["Reach the Bride’s House by 5:45 AM, prepare and stand by.","Have a simple breakfast.","Start preparing the gatecrash games."],
+ per:{"Sheryl":{a:["Tie the flowers on the bridesmaids’ car (Car #4)."]}}},
+
+{id:"gm-arrive", t:345, label:"5:45 AM", place:"Groom’s House", ph:"B", title:"Arrive at Groom’s House & load the car",
+ who:["GM"],
+ s:["Reach the Groom’s House by 5:45 AM, prepare and stand by.","Have a simple breakfast.","Load the car with the deco things (pack in boxes and label each box)."],
+ b:["12 oranges in a red basket/tray","7 angbaos (for the car boy and the gatecrash)","Bridal bouquet and boutonniere"],
+ per:{"Emil":{a:["Tie the flowers on the groomsmen’s car."]},
+      "Yong-Sen":{a:["Ang Pao IC: you look after the 7 angbaos."]}}},
+
+{id:"vendors-arrive", t:360, label:"6:00 AM", place:"Bride’s House", ph:"B", title:"Photographer & videographer arrive",
+ who:["Jovic","Eric-Yong","Shanice","Angelia"],
+ s:["Be at the Bride’s House by 6:00 AM.","Photos of the bride and family need 20+ minutes (6:00–6:30 AM)."],
+ per:{"Shanice":{s:["Make sure the photographer and videographer arrive by 6:00 AM.","Photos of the bride and family need 20+ minutes (6:00–6:30 AM)."]},
+      "Angelia":{s:["Photos with your family and the photographer & videographer, 6:00–6:30 AM.","Mum and Dad should be dressed up."]}}},
+
+{id:"prep-final", t:375, label:"6:15 AM", place:"Bride’s House", ph:"B", title:"Final preparation",
+ who:["Angelia"],
+ s:["Veiling at 6:15 AM.","Make-up to be finished by 6:30 AM.","Wear your heels."]},
+
+{id:"groom-leave", t:380, label:"6:20 AM", place:"Groom’s House", ph:"B", title:"Leave for the Bride’s House",
+ who:["Wilson","GM"],
+ s:["Depart for the Bride’s House at 6:20 AM.","The groom must reach Angelia’s House by 6:40 AM."],
+ per:{"Emil":{a:["Message Sheryl as you leave the Groom’s House."],
+              flag:"The run-down only says “Inform Sheryl upon leaving Groom’s house”. Assumed you (timekeeper) — confirm with GM."}}},
+
+{id:"gc-prep", t:380, label:"6:20 AM", place:"Multipurpose Hall (under Bride’s House)", ph:"B", title:"Final prep of the gatecrash games",
+ who:["BM"],
+ s:["Finish setting up the gatecrash games in the Multipurpose Hall under the Bride’s House.","Stand by — gatecrash starts as soon as the groom arrives."],
+ per:{"Yuri":GCIC,"Mindy":GCIC2,
+      "Sheryl":{a:["You’ll be messaged when the groom leaves — tell the bridesmaids when he is arriving."]},
+      "Kim":PICS,"Shanice":PICS}},
+
+{id:"car-door", t:390, label:"6:30 AM", place:"Downstairs at Bride’s House", ph:"B", title:"Stand by for the groom’s arrival",
+ who:["Ying-Xiang","Auggie","Jovic","Eric-Yong"],
+ s:["Stand by downstairs."],
+ per:{"Ying-Xiang":{s:["Car door opener: stand by downstairs to open the bridal car door as soon as the groom arrives."]},
+      "Auggie":{s:["Car boy: stand by downstairs.","Hold 2 oranges to welcome Wilson."], b:["2 oranges"]},
+      "Jovic":{s:["Stand by downstairs to photograph the groom’s arrival."]},
+      "Eric-Yong":{s:["Stand by downstairs to film the groom’s arrival."]}}},
+
+{id:"arrive-bh", t:400, label:"6:40 AM", place:"Bride’s House", ph:"B", title:"Groom’s party arrives — MUST be there by 6:40",
+ who:["Wilson","GM","Auggie","Ying-Xiang","Jovic","Eric-Yong"],
+ s:["Be at the Bride’s House by 6:40 AM."],
+ per:{"Wilson":{s:["Reach the Bride’s House by 6:40 AM (needed for photos and video).","The car boy opens the bridal car door and gives you 2 oranges.","Give the angbaos to the car boy and leave the 2 oranges in the bridal car."]},
+      "GM":{s:["Honk when you arrive — all cars honk.","Park the car and get ready to start the gatecrash games."]},
+      "Yong-Sen":{a:["Make sure Wilson has the angbaos for the car boy."]},
+      "Auggie":{s:["Open the bridal car door.","Give the 2 oranges to Wilson.","Receive the angbao from the groom."]},
+      "Ying-Xiang":{s:["Open the bridal car door (car door opener)."]},
+      "Jovic":{s:["Photograph the arrival and the car-door moment."]},
+      "Eric-Yong":{s:["Film the arrival and the car-door moment."]}}},
+
+{id:"gatecrash", t:405, label:"6:45 AM", place:"Multipurpose Hall (under Bride’s House)", ph:"C", title:"Gatecrash games (about 30 min)",
+ who:["Wilson","BM","GM","Jovic","Eric-Yong"],
+ s:["Start ASAP — it runs about 30 minutes."],
+ per:{"Wilson":{s:["Take on the gatecrash games with your groomsmen — about 30 minutes."]},
+      "BM":{s:["Run the gatecrash games — start ASAP (about 30 minutes)."]},
+      "GM":{s:["Take part in the gatecrash games with Wilson — start ASAP (about 30 minutes)."]},
+      "Yuri":GCIC,"Mindy":GCIC2,
+      "Sheryl":{a:["Timekeeper: keep the 30 minutes on track (with Emil)."]},
+      "Emil":{a:["Timekeeper: keep the 30 minutes on track (with Sheryl)."]},
+      "Kim":PICS,"Shanice":PICS,
+      "Yong-Sen":{a:["Ang Pao IC: hand out the angbaos during the games."]},
+      "Jovic":{s:["Photograph the gatecrash."]},
+      "Eric-Yong":{s:["Film the gatecrash."]}}},
+
+{id:"head-up", t:435, label:"7:15 AM", place:"Bride’s House", ph:"C", title:"Head up to the Bride’s House",
+ who:["Wilson","BM","GM"],
+ s:["Gatecrash is over — head up to the Bride’s House.","Photos with Dad and the umbrella."],
+ per:{"GM":{a:["Bring the 12 oranges in the red basket and the bridal bouquet."]}}},
+
+{id:"receive", t:445, label:"7:25 AM", place:"Bride’s House", ph:"C", title:"Receive the bride",
+ who:["Wilson","Angelia","Jovic","Eric-Yong"],
+ s:["Capture the moment."],
+ per:{"Wilson":{s:["Present the bouquet.","Unveil the veil.","Receive the bride."]},
+      "Angelia":{s:["Wilson presents the bouquet, unveils your veil and receives you."]}}},
+
+{id:"photos-bh", t:455, label:"Before 8:00 AM", place:"Bride’s House", ph:"C", title:"Photos at the Bride’s House (15–20 min)",
+ who:["Wilson","Angelia","BM","GM","Ying-Xiang","Jovic","Eric-Yong"],
+ s:["Group photos — allow 15–20 minutes.","Everyone out of the house by 8:00 AM."]},
+
+{id:"leave-bh", t:480, label:"8:00 AM", place:"Bride’s House", ph:"D", title:"Leave the Bride’s House",
+ who:["Wilson","Angelia","Jolene","Yong-Sen","Lennon","Eric","Yuri","Mindy","Emil","Sabrina","Sheryl","Shanice","Kim","Jovic","Eric-Yong"],
+ s:["Get ready to drive off."],
+ per:{"Wilson":{s:["Get into the bridal car (Car #1).","Dad shades Angelia with the umbrella and hands it to you once she is in the car — bring it to the new home."]},
+      "Angelia":{s:["Get into the bridal car (Car #1). Your bouquet stays with you.","Dad shades you with the umbrella.","After the car has travelled a while, throw the fan — Mum picks it up."]},
+      "Jolene":{s:["Ride in the bridal car (Car #1).","Help with the bride’s gown — your full-time job today!"]},
+      "Yong-Sen":{s:["Drive the bridal car (Car #1: you, Jolene, Angelia, Wilson)."]},
+      "Lennon":{s:["Drive Car #3 (Lennon, Eric, Yuri, Mindy) and follow the bridal car to the Groom’s House."]},
+      "Eric":{s:["Ride in Car #3 (Lennon driving) to the Groom’s House."]},
+      "Yuri":{s:["Ride in Car #3 (Lennon driving) to the Groom’s House."]},
+      "Mindy":{s:["Ride in Car #3 (Lennon driving) to the Groom’s House."]},
+      "Emil":{s:["Take Car #2 (SLN2967G) straight to the hotel — you are the advance party."]},
+      "Sabrina":{s:["Ride in Car #2 (SLN2967G) straight to the hotel — you are the advance party."]},
+      "Sheryl":{s:["Take Car #4 (Greenie SJP1034T) straight to the hotel — you are the advance party."]},
+      "Shanice":{s:["Ride in Car #4 (Greenie SJP1034T) straight to the hotel — you are the advance party."]},
+      "Kim":{s:["Ride in Car #4 (Greenie SJP1034T) straight to the hotel — you are the advance party."]},
+      "Jovic":{s:["Follow the bridal car to the Groom’s House."]},
+      "Eric-Yong":{s:["Follow the bridal car to the Groom’s House."]}}},
+
+{id:"drive-gh", t:500, label:"8:20 AM", place:"Groom’s House", ph:"D", title:"Arriving at the Groom’s House (8:35 AM)",
+ who:["Wilson","Angelia","Jolene","Yong-Sen","Lennon","Eric","Yuri","Mindy","Jun-Hearn","Sheryl","Jovic","Eric-Yong"],
+ s:["Wedding entourage: move from the car into the house with the couple.","Family members hide in their rooms and only come out when the couple reaches the marital room."],
+ per:{"Wilson":{s:["Move from the car into the house with Angelia.","Family members hide in their rooms and only come out when you reach the marital room."], b:["Angbao for the car boy"]},
+      "Angelia":{s:["Move from the car into the house with Wilson.","Family members hide in their rooms and only come out when you reach the marital room."]},
+      "Jun-Hearn":{s:["Car boy: stand by to open the car door when the bridal car arrives."], b:["Angbao for the car boy"]},
+      "Jovic":{s:["Get out of the car first, ready to photograph the couple’s arrival."]},
+      "Eric-Yong":{s:["Get out of the car first, ready to film the couple’s arrival."]},
+      "Sheryl":{s:["Inform the Groom’s brother 5 minutes before the couple arrives."],
+                flag:"Your car heads to the hotel at 8:00, but the run-down still lists this as your job — confirm with GM how you’ll message him."}}},
+
+{id:"gh-tea", t:515, label:"8:35–9:00 AM", place:"Groom’s House", ph:"D", title:"Sweet tea / tang yuan & photos",
+ who:["Wilson","Angelia","Jovic","Eric-Yong"],
+ s:["8:35 — Reach the Groom’s House.","8:40 — Drink sweet tea or tang yuan in the room (5 min).","8:45 — Photos (15 min)."],
+ per:{"Jovic":{s:["Photograph the tang yuan and the Groom’s House photos (8:45, 15 min)."]},
+      "Eric-Yong":{s:["Film the tang yuan and the Groom’s House photos (8:45, 15 min)."]}}},
+
+{id:"mums-mua", t:525, label:"8:45 AM", place:"Hotel", ph:"D", title:"Mothers’ make-up at the hotel",
+ who:["Mindy"],
+ s:["Vendors IC: make sure Angelia’s Mum reaches the hotel by 8:45 AM.","Angelia’s Mum’s make-up: 9:00–10:00 AM.","Wilson’s Mum’s make-up: 10:00–11:00 AM.","Make-up artists: 3tee Make Up (8778 3225)."],
+ per:{"Mindy":{flag:"The run-down doesn’t name who looks after this — assumed you (Vendors IC). Confirm with GM."}}},
+
+{id:"leave-gh", t:545, label:"9:05 AM", place:"Groom’s House", ph:"D", title:"Leave the Groom’s House",
+ who:["Wilson","Angelia","Jolene","Yong-Sen","Lennon","Eric","Yuri","Mindy","Jovic","Eric-Yong"],
+ s:["Leave the house by 9:05 AM — drive off by 9:10 AM."],
+ per:{"Yong-Sen":{s:["Drive the bridal car (Car #1). Leave by 9:05 AM, drive off by 9:10 AM."]},
+      "Lennon":{s:["Drive Car #3. Leave by 9:05 AM, drive off by 9:10 AM."]}}},
+
+{id:"hotel-arrive", t:590, label:"9:50 AM", place:"Pan Pacific Singapore", ph:"E", title:"Arrive at the hotel — reach by 9:50",
+ who:["Wilson","Angelia","Jolene","Yong-Sen","Lennon","Eric","Yuri","Mindy"],
+ s:["Reach the hotel by 9:50 AM."]},
+
+{id:"hotel-deco", t:590, label:"9:50 AM", place:"Hotel Ballroom", ph:"E", title:"Bring all the wedding deco up to the ballroom",
+ who:["BM","GM"],
+ s:["Once you arrive, bring all the wedding deco up to the hotel ballroom first.","Use the deco list — boxes should be packed and labelled."]},
+
+{id:"shoot", t:592, label:"9:50–10:40 AM", place:"Pan Pacific — Main Lobby & Rooftop", ph:"E", title:"Video & photo shoot (50 min)",
+ who:["Wilson","Angelia","BM","GM","Jovic","Eric-Yong"],
+ s:["Shoot at the Main Lobby and the Rooftop — about 50 minutes. Everyone takes part."],
+ per:{"BM":{s:["Shoot at the Main Lobby and the Rooftop — about 50 minutes. Join in once the deco is up in the ballroom."]},
+      "GM":{s:["Shoot at the Main Lobby and the Rooftop — about 50 minutes. Join in once the deco is up in the ballroom."]},
+      "Jovic":{s:["Photo shoot at the Main Lobby and the Rooftop (50 min)."]},
+      "Eric-Yong":{s:["Video shoot at the Main Lobby and the Rooftop (50 min)."]}}},
+
+{id:"suite", t:645, label:"10:45–11:15 AM", place:"Bridal Suite", ph:"E", title:"Change into Kua",
+ who:["Wilson","Angelia","Jolene"],
+ s:["Bride and groom change into Kua (30 min).","Freshen up before the Tea Ceremony."],
+ per:{"Jolene":{s:["Help the bride and groom change into Kua.","Help them freshen up before the Tea Ceremony."]}}},
+
+{id:"deco", t:646, label:"10:45 AM–12:00 PM", place:"Hotel Ballroom", ph:"E", title:"Set up the ballroom decoration",
+ who:["Sheryl","Kim","Shanice","Mindy","Sabrina"],
+ s:["Set up the easels with the foam boards.","Guestbook, pens and markers beside the photobooth.","Reception table.","DIY station.","Refer to the sample deco picture."],
+ per:{"Kim":PICS,"Shanice":PICS}},
+
+{id:"tea-prep", t:647, label:"10:45–11:15 AM", place:"Tea Ceremony room (Level 2)", ph:"E", title:"Prepare the Tea Ceremony room",
+ who:["Cynthia","Emil","Eric","Lennon"],
+ s:["Set up the “Big Xi” and the cushions.","Coordinate and prepare for the tea ceremony.","Check the sound system."],
+ per:{"Cynthia":{s:["Emcee: coordinate and prepare for the tea ceremony.","Check the sound system with Eric and Lennon."], b:["Disposable cups","List of names (by rank of the adult, not by name)","Simple script"]},
+      "Emil":{s:["Coordinator: do a look-see of the room and coordinate.","Make sure the Big Xi and cushions are in place."]},
+      "Eric":{s:["AV: check the sound system in the room."]},
+      "Lennon":{s:["AV: check the sound system in the room."]}}},
+
+{id:"av-check", t:648, label:"10:45 AM", place:"Hotel Ballroom + Level 2", ph:"E", title:"AV system check",
+ who:["Eric","Lennon"],
+ s:["Check the AV system in the Hotel Ballroom and on Level 2."]},
+
+{id:"lunch-vendors", t:660, label:"By 11:45 AM", place:"Hotel", ph:"E", title:"Order lunch for the vendors",
+ who:["Mindy"],
+ s:["Order lunch for the vendors — it must arrive by 11:45 AM.","Lunch is for the videographer, photographer, emcee and live band."]},
+
+{id:"tea", t:675, label:"11:15 AM–12:00 PM", place:"Tea Ceremony room (Level 2)", ph:"E", title:"Tea Ceremony",
+ who:["Wilson","Angelia","Cynthia","Yuri","Jolene","Yong-Sen","Sindy","Jun-Hearn","Eric","Lennon","Jovic","Eric-Yong"],
+ s:["Tea Ceremony."],
+ per:{"Wilson":{s:["Tea ceremony with both families, in Kua.","Family photo of both sides at the end."]},
+      "Angelia":{s:["Tea ceremony with both families, in Kua.","Family photo of both sides at the end."]},
+      "Cynthia":{s:["Emcee the tea ceremony.","Use the list of names (ranked by adult, not by name) and the simple script."],
+                 b:["Disposable cups","List of names (by rank of the adult)","iPad"],
+                 flag:"The run-down also says “Yuri to Emcee”, but the Roles tab names you. Confirm with GM."},
+      "Yuri":{s:["Coordinator: keep the tea ceremony running smoothly."],
+              flag:"The run-down says “Yuri to Emcee”, but the Roles tab names Cynthia as emcee and you as coordinator. Confirm with GM."},
+      "Jolene":{s:["Coordinator: keep the tea ceremony running smoothly.","Ang Pao IC (in): take and note the angbaos (AP) received, with YS."]},
+      "Yong-Sen":{s:["Take and note the angbaos (AP) received, with Jolene.","Ang Pao IC (out): handle the angbaos to be given out."]},
+      "Sindy":{s:["Confirm who is coming and update the list of names.","Coordinate the Bride’s side so everyone moves smoothly."], b:["Disposable cups","Updated list of names"]},
+      "Jun-Hearn":{s:["Confirm who is coming and update the list of names.","Coordinate the Groom’s side so everyone moves smoothly."], b:["Disposable cups","Updated list of names"]},
+      "Eric":{s:["AV: play the “Tea Ceremony” playlist."]},
+      "Lennon":{s:["AV: play the “Tea Ceremony” playlist."]},
+      "Jovic":{s:["Take photos of the tea ceremony.","Family photo of both sides at the end."]},
+      "Eric-Yong":{s:["Take video of the tea ceremony.","Family photo of both sides at the end."]}}},
+
+{id:"chairs", t:676, label:"Before 12:00 PM", place:"Hotel Ballroom", ph:"E", title:"Check extra chairs & baby chairs",
+ who:["Sabrina"],
+ s:["Check for extra chairs and baby chairs at each table."]},
+
+{id:"reception", t:720, label:"12:00 PM", place:"Reception (outside the ballroom)", ph:"F", title:"Registration counter",
+ who:["Yong-Sen","Lennon","Sindy","Jolene","Shanice"],
+ s:["Tea ceremony guests register at the reception; other guests start arriving."],
+ per:{"Yong-Sen":{s:["Groom’s side counter: register guests, collect angbaos, issue parking coupons."], b:["Laptop + charger","Pens"]},
+      "Lennon":{s:["Groom’s side counter: register guests, collect angbaos, issue parking coupons."], b:["Laptop + charger","Pens"]},
+      "Sindy":{s:["Bride’s side counter: register guests, collect angbaos, issue parking coupons."], b:["Laptop + charger","Pens"]},
+      "Jolene":{s:["Bride’s side counter: register guests, collect angbaos, issue parking coupons."], b:["Pens"],
+                flag:"The run-down puts you on the Bride’s-side counter; the Roles tab lists Shanice for reception duties. Confirm with GM."},
+      "Shanice":{s:["Reception duties: registration, angbao collection and parking coupons."], b:["Pens"],
+                 flag:"The Roles tab lists you for reception duties; the run-down names Jolene for the Bride’s-side counter. Confirm with GM."}}},
+
+{id:"change-couple", t:721, label:"12:00 PM", place:"Hotel", ph:"F", title:"Change & make-up",
+ who:["Angelia","Wilson"],
+ per:{"Angelia":{title:"Change into your white dress", s:["Change into the white dress after the tea ceremony."]},
+      "Wilson":{title:"Make-up", s:["Make-up starts at 12:00 PM, right after the tea ceremony."]}}},
+
+{id:"change-team", t:722, label:"12:00 PM", place:"Hotel", ph:"F", title:"Change outfits (if required)",
+ who:["BM","GM"],
+ s:["Change outfit if required."]},
+
+{id:"liaison", t:723, label:"12:00 PM", place:"Hotel", ph:"F", title:"Main Liaison",
+ who:["Emil"],
+ s:["You are the main liaison for the hotel and vendors during the cocktail and banquet.","Hotel Sales Manager: Leanne Kian (9336 7091)."]},
+
+{id:"emcee-arrive", t:745, label:"By 12:25 PM", place:"Hotel", ph:"F", title:"Emcee arrives",
+ who:["Mindy","Wen-Wen"],
+ s:["Arrive by 12:25 PM."],
+ per:{"Mindy":{s:["Make sure the emcee (Wen Wen) arrives by 12:25 PM."]}}},
+
+{id:"angbao-box", t:760, label:"Before 12:45 PM", place:"Ballroom", ph:"F", title:"Bring the angbao box in",
+ who:["Yong-Sen","Sindy"],
+ s:["Bring the angbao box into the ballroom before the banquet starts.","Ang Pao IC for the banquet: look after the angbao box."]},
+
+{id:"march1", t:765, label:"12:45 PM", place:"Grand Ballroom", ph:"G", title:"First march-in",
+ who:["Wilson","Angelia","Wen-Wen","Eric","Lennon"],
+ s:["First march-in."],
+ per:{"Wen-Wen":{s:["Emcee the first march-in; coordinate with Eric and Lennon (AV)."]},
+      "Eric":{s:["AV: coordinate with Wen Wen for the first march-in."]},
+      "Lennon":{s:["AV: coordinate with Wen Wen for the first march-in."]}}},
+
+{id:"diy", t:770, label:"During the banquet", place:"Hotel Ballroom", ph:"G", title:"Look after the DIY booth",
+ who:["Sabrina","Mindy"],
+ s:["DIY Booth IC: look after the DIY station and the photobooth.","Photobooth vendor: Boon Hock (8121 8204)."]},
+
+{id:"kahoot", t:790, label:"1:10 PM", place:"Grand Ballroom", ph:"G", title:"Lunch starts — Kahoot (Course #1)",
+ who:["Wen-Wen","Wilson","Angelia","Emil","Sabrina","Eric","Lennon"],
+ s:["Kahoot quiz."],
+ per:{"Wen-Wen":{s:["Host the Kahoot quiz."]},
+      "Wilson":{s:["Give out the prizes to the Kahoot winners, with Angelia."]},
+      "Angelia":{s:["Give out the prizes to the Kahoot winners, with Wilson."]},
+      "Emil":{s:["Stand by with the prizes (3 prizes)."]},
+      "Sabrina":{s:["Game IC: support the emcee and Emil with the games."]},
+      "Eric":{s:["AV: assist the emcee (press the buttons)."]},
+      "Lennon":{s:["AV: assist the emcee (press the buttons)."]}}},
+
+{id:"soup", t:805, label:"1:25 PM", place:"Grand Ballroom", ph:"G", title:"Course #2 (soup) — bride changes",
+ who:["Angelia","Mindy","Jolene","Wen-Wen"],
+ s:["Bride leaves to change."],
+ per:{"Angelia":{s:["Leave to change during the soup course.","Mindy and Jolene go with you."]},
+      "Mindy":{s:["Follow the bride to change."]},
+      "Jolene":{s:["Follow the bride to change."]},
+      "Wen-Wen":{s:["Run-down note: “Emcee to give ang bao”."],
+                 flag:"The run-down only says “Emcee to give ang bao” — confirm with GM who gives it, and to whom."}}},
+
+{id:"guess-song", t:810, label:"1:25–2:00 PM", place:"Grand Ballroom", ph:"G", title:"Guess the Song (Course #3)",
+ who:["Wen-Wen","Emil","Sabrina"],
+ s:["Guess the Song game."],
+ per:{"Wen-Wen":{s:["Host the Guess the Song game and give out the prize."]},
+      "Emil":{s:["Stand by with the prizes."]},
+      "Sabrina":{s:["Game IC: support the emcee."]}}},
+
+{id:"march2", t:840, label:"2:00 PM", place:"Outside the Grand Ballroom", ph:"G", title:"Stand by for the second march-in (Course #4)",
+ who:["Wilson","Angelia","BM","GM","Wen-Wen","Eric","Lennon"],
+ s:["Second march-in."],
+ per:{"Wilson":{s:["Get ready outside the Grand Ballroom at 2:00 PM.","2:05 PM — second march-in, with the march-in song.","Go straight to the stage for the champagne pouring and lover’s toast, followed by the traditional Yum Sheng."]},
+      "Angelia":{s:["Get ready outside the Grand Ballroom at 2:00 PM.","2:05 PM — second march-in, with the march-in song.","Go straight to the stage for the champagne pouring and lover’s toast, followed by the traditional Yum Sheng."]},
+      "BM":{s:["Be ready along the aisle by 2:00 PM."], b:["Party poppers"]},
+      "GM":{s:["Be ready along the aisle by 2:00 PM."], b:["Party poppers"]},
+      "Wen-Wen":{s:["Announce the arrival of the groom and bride."]},
+      "Eric":{s:["AV: play the second march-in song at 2:05 PM."]},
+      "Lennon":{s:["AV: play the second march-in song at 2:05 PM."]}}},
+
+{id:"sde", t:855, label:"2:15 PM", place:"Grand Ballroom", ph:"G", title:"Same Day Edit video",
+ who:["Wen-Wen","Eric","Lennon","Eric-Yong","Wilson","Angelia"],
+ s:["Same Day Edit (Morning Highlights) video, about 5 minutes."],
+ per:{"Wen-Wen":{s:["Present the Morning Highlights (SDE intro)."]},
+      "Eric":{s:["AV: liaise with the videographer and play the Same Day Edit (about 5 min)."]},
+      "Lennon":{s:["AV: liaise with the videographer and play the Same Day Edit (about 5 min)."]},
+      "Eric-Yong":{s:["Liaise with Eric and Lennon (AV) so the Same Day Edit plays."]},
+      "Wilson":{s:["Watch the Same Day Edit (about 5 min), then the Yum Seng toast (10 min)."]},
+      "Angelia":{s:["Watch the Same Day Edit (about 5 min), then the Yum Seng toast (10 min)."]}}},
+
+{id:"speech", t:870, label:"2:30 PM", place:"Grand Ballroom", ph:"G", title:"Couple’s speech (Course #5)",
+ who:["Wilson","Angelia"],
+ s:["Couple’s speech — about 5 minutes."]},
+
+{id:"photo-announce", t:885, label:"2:45 PM", place:"Grand Ballroom", ph:"G", title:"Table-to-table photo taking begins",
+ who:["Wen-Wen","Emil","Yong-Sen","GM"],
+ s:["Support Emil and Yong Sen with the table-to-table photo-taking."],
+ per:{"Wen-Wen":{s:["Announce the photo-taking so it is easier to facilitate.","Live band session around this time."]},
+      "Emil":{s:["Facilitate the table-to-table photo-taking sessions (with YS)."]},
+      "Yong-Sen":{s:["Facilitate the table-to-table photo-taking sessions (with Emil)."]}}},
+
+{id:"phototaking", t:900, label:"3:00 PM", place:"Grand Ballroom", ph:"G", title:"Photo taking continues (Courses #6–#8)",
+ who:["Wilson","Angelia","Emil","Yong-Sen","Jovic","Eric-Yong"],
+ s:["Course #6 at 3:00 PM, #7 at 3:15 PM, #8 at 3:30 PM.","Keep going table to table."],
+ per:{"Emil":{s:["Keep facilitating the table-to-table photo-taking (Courses #6–#8: 3:00, 3:15, 3:30 PM)."]},
+      "Yong-Sen":{s:["Keep facilitating the table-to-table photo-taking (Courses #6–#8: 3:00, 3:15, 3:30 PM)."]},
+      "Jovic":{s:["Photograph the table-to-table sessions."]},
+      "Eric-Yong":{s:["Film the table-to-table sessions."]}}},
+
+{id:"farewell", t:960, label:"4:00 PM", place:"Grand Ballroom", ph:"G", title:"Bid farewell",
+ who:["Wilson","Angelia","Wen-Wen","Emil"],
+ s:["Bid farewell to the guests."],
+ per:{"Wen-Wen":{s:["Emcee the farewell."]},
+      "Emil":{s:["Main liaison: stay on hand for the hotel and vendors until the guests have left."]}}}
+];
+
+function groupOf(key){ var p=PEOPLE[key]; return p.bm?"BM":(p.gm?"GM":null); }
+function expand(who){
+  var out=[];
+  who.forEach(function(w){
+    if(w==="BM") BM.forEach(function(x){ if(out.indexOf(x)<0) out.push(x); });
+    else if(w==="GM") GM.forEach(function(x){ if(out.indexOf(x)<0) out.push(x); });
+    else if(out.indexOf(w)<0) out.push(w);
+  });
+  return out;
+}
+EV.forEach(function(e,i){ e._i=i; e.people=expand(e.who); });
+var SORTED = EV.slice().sort(function(a,b){ return a.t-b.t || a._i-b._i; });
+
+function resolve(key){
+  var g=groupOf(key), list=[];
+  SORTED.forEach(function(e){
+    if(e.people.indexOf(key)<0) return;
+    var per=e.per||{}, base=(g&&per[g])||{}, me=per[key]||{};
+    var steps=(me.s||base.s||e.s||[]).slice();
+    steps=steps.concat(base.a||[], me.a||[]);
+    var bring=(me.b||base.b||e.b||[]).slice();
+    var others=e.people.filter(function(x){ return x!==key; });
+    list.push({
+      id:e.id, t:e.t, label:e.label, place:e.place, ph:e.ph,
+      title:me.title||base.title||e.title,
+      steps:steps, bring:bring,
+      flag:me.flag||base.flag||"",
+      others:others
+    });
+  });
+  return list;
+}
+
+var KEY="wedding-day-runner-v1", mem={}, storageOK=true;
+var inApp=/FBAN|FBAV|Instagram|WhatsApp|Line\/|; wv\)/i.test(navigator.userAgent)||(/iPhone|iPad|iPod/.test(navigator.userAgent)&&!/Safari/.test(navigator.userAgent));
+function readStore(){
+  var srcs=[];
+  try{ srcs.push(window.localStorage.getItem(KEY)); }catch(e){ storageOK=false; }
+  try{ srcs.push(window.sessionStorage.getItem(KEY)); }catch(e){}
+  try{ if(window.name&&window.name.indexOf("wdr:")===0) srcs.push(window.name.slice(4)); }catch(e){}
+  var out={};
+  srcs.forEach(function(r){
+    if(!r) return;
+    try{ var o=JSON.parse(r); Object.keys(o).forEach(function(k){ out[k]=out[k]||{}; Object.keys(o[k]).forEach(function(id){ out[k][id]=Math.max(out[k][id]||0,o[k][id]); }); }); }catch(e){}
+  });
+  return out;
+}
+function loadState(){
+  mem=readStore();
+  try{ window.localStorage.setItem(KEY+"-test","1"); window.localStorage.removeItem(KEY+"-test"); }catch(e){ storageOK=false; }
+}
+function saveState(){
+  var s=JSON.stringify(mem);
+  try{ window.localStorage.setItem(KEY,s); }catch(e){ storageOK=false; }
+  try{ window.sessionStorage.setItem(KEY,s); }catch(e){}
+  try{ if(!window.name||window.name.indexOf("wdr:")===0) window.name="wdr:"+s; }catch(e){}
+}
+function doneAt(key,id){ return mem[key]&&mem[key][id]||0; }
+function toggle(key,id){
+  mem[key]=mem[key]||{};
+  if(mem[key][id]) delete mem[key][id]; else mem[key][id]=Date.now();
+  saveState();
+}
+
+function esc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
+function clock(ms){ try{ return new Date(ms).toLocaleTimeString([], {hour:"numeric",minute:"2-digit"}); }catch(e){ return ""; } }
+function fmtPhone(p){ return p.slice(0,4)+" "+p.slice(4); }
+function counts(key){
+  var tasks=resolve(key), d=0;
+  tasks.forEach(function(t){ if(doneAt(key,t.id)) d++; });
+  return {done:d,total:tasks.length};
+}
+var app=document.getElementById("app");
+var hideDone=false;
+
+function toast(msg){
+  var t=document.createElement("div"); t.className="toast"; t.textContent=msg;
+  document.body.appendChild(t); setTimeout(function(){ t.remove(); },2200);
+}
+
+function home(){
+  var h='<div class="hero"><h1 class="serif">Wilson &amp; Angelia</h1><p>Wedding day run-down. Tap your name to see only your tasks.</p></div>';
+  GROUP_ORDER.forEach(function(g){
+    var keys=Object.keys(PEOPLE).filter(function(k){ return PEOPLE[k].grp===g; });
+    h+='<div class="group"><h2>'+esc(g)+'</h2><div class="grid">';
+    keys.forEach(function(k){
+      var c=counts(k), pct=c.total?Math.round(c.done/c.total*100):0;
+      h+='<a class="person-btn" href="#'+k+'"><b>'+esc(PEOPLE[k].name)+'</b><small>'+esc(PEOPLE[k].role)+'</small>'
+        +'<small>'+c.done+' of '+c.total+' done</small><div class="mini-bar"><i style="width:'+pct+'%"></i></div></a>';
+    });
+    h+='</div></div>';
+  });
+  h+='<div class="links"><a href="#timeline">Full timeline</a><a href="#contacts">Contacts &amp; cars</a></div>';
+  h+='<div class="tip"><b>How ticking works:</b> your ticks are saved on this phone, so closing the page won’t lose them. Other people can’t see your ticks automatically — after you tick, tap <b>Send update</b> on your page to message the GM.</div>';
+  app.innerHTML=h;
+}
+
+function taskHTML(key,t,nextId){
+  var d=doneAt(key,t.id), cls="task"+(d?" done":"")+(!d&&t.id===nextId?" next":"");
+  var h='<article class="'+cls+'" id="t-'+t.id+'">'
+    +'<button class="check" data-id="'+t.id+'" aria-pressed="'+(d?"true":"false")+'" aria-label="'+(d?"Undo: ":"Mark done: ")+esc(t.title)+'">✓</button>'
+    +'<div class="body"><div class="meta"><span class="time">'+esc(t.label)+'</span><span class="place">📍 '+esc(t.place)+'</span>'
+    +(!d&&t.id===nextId?'<span class="badge">Next up</span>':'')+'</div>'
+    +'<h3>'+esc(t.title)+'</h3>';
+  if(t.steps.length){ h+='<ul>'+t.steps.map(function(s){ return '<li>'+esc(s)+'</li>'; }).join("")+'</ul>'; }
+  if(t.bring.length){ h+='<div class="bring">🎒 <b>Bring:</b> '+t.bring.map(esc).join(" · ")+'</div>'; }
+  if(t.others.length&&t.others.length<=5){ h+='<div class="with">👥 With: '+t.others.map(function(o){ return esc(PEOPLE[o].name); }).join(", ")+'</div>'; }
+  if(t.flag){ h+='<div class="flag">⚠️ '+esc(t.flag)+'</div>'; }
+  if(d){ h+='<div class="donetime">✓ Done at '+esc(clock(d))+'</div>'; }
+  return h+'</div></article>';
+}
+
+function person(key){
+  var p=PEOPLE[key];
+  var h='<div class="topbar"><a class="back" href="#">‹ Everyone</a></div>';
+  h+='<div class="head"><h1 class="serif">'+esc(p.name)+'</h1><div class="role">'+esc(p.role)+'</div>'
+    +'<div class="progress"><div class="row"><span id="pcount"></span><span id="ppct"></span></div><div class="bar"><i id="pbar"></i></div></div>'
+    +'<div class="actions"><button class="btn primary" id="send">📤 Send update to GM</button><button class="btn ghost" id="hide"></button></div>';
+  if(inApp){ h+='<div class="banner">⚠️ You’re in an in-app browser (like WhatsApp), which often forgets your ticks. For them to stay saved, tap the <b>⋯ menu</b> and choose <b>Open in Safari / Chrome</b>, then tick there.</div>'; }
+  else if(!storageOK){ h+='<div class="banner">⚠️ This browser can’t save ticks after you close the page. Tap <b>Send update</b> after ticking so the GM still has a record.</div>'; }
+  if(p.car&&CARS[p.car]){
+    var c=CARS[p.car];
+    h+='<div class="carbox">🚗 <b>'+esc(c.title)+'</b><br>'+c.members.map(function(m){ return esc(PEOPLE[m].name); }).join(", ")+'<br><span style="color:var(--muted)">'+esc(c.note)+'</span></div>';
+  }
+  h+='</div><div id="tasks"></div>';
+  h+='<div class="footer-actions"><a class="btn" style="text-align:center;text-decoration:none" href="#contacts">📞 Contacts &amp; cars</a><a class="btn" style="text-align:center;text-decoration:none" href="#timeline">🕒 Full timeline</a><button class="btn ghost" id="reset">Reset my ticks</button></div>';
+  app.innerHTML=h;
+  renderTasks(key,true);
+
+  document.getElementById("tasks").addEventListener("click",function(ev){
+    var b=ev.target.closest(".check"); if(!b) return;
+    toggle(key,b.getAttribute("data-id")); renderTasks(key,false);
+  });
+  document.getElementById("hide").addEventListener("click",function(){ hideDone=!hideDone; renderTasks(key,false); });
+  document.getElementById("send").addEventListener("click",function(){ openShare(key); });
+  var rb=document.getElementById("reset"), armed=false, timer;
+  rb.addEventListener("click",function(){
+    if(!armed){ armed=true; rb.textContent="Tap again to clear all my ticks"; timer=setTimeout(function(){ armed=false; rb.textContent="Reset my ticks"; },3500); }
+    else{ clearTimeout(timer); delete mem[key]; saveState(); armed=false; rb.textContent="Reset my ticks"; renderTasks(key,false); toast("Ticks cleared"); }
+  });
+}
+
+function renderTasks(key,first){
+  var tasks=resolve(key), done=0, nextId=null;
+  tasks.forEach(function(t){ if(doneAt(key,t.id)) done++; else if(!nextId) nextId=t.id; });
+  var pct=tasks.length?Math.round(done/tasks.length*100):0;
+  document.getElementById("pcount").textContent=done+" of "+tasks.length+" done";
+  document.getElementById("ppct").textContent=pct+"%";
+  document.getElementById("pbar").style.width=pct+"%";
+  document.getElementById("hide").textContent=hideDone?"Show done":"Hide done";
+  var y=window.scrollY, h="", lastPh=null, shown=0;
+  tasks.forEach(function(t){
+    if(hideDone&&doneAt(key,t.id)) return;
+    if(t.ph!==lastPh){ h+='<div class="phase">'+esc(PH[t.ph])+'</div>'; lastPh=t.ph; }
+    h+=taskHTML(key,t,nextId); shown++;
+  });
+  if(!shown){ h='<div class="empty">'+(tasks.length?'🎉 All done — well done, '+esc(PEOPLE[key].name)+'!':'No tasks listed for you.')+'</div>'; }
+  document.getElementById("tasks").innerHTML=h;
+  if(first&&done>0&&nextId){
+    var el=document.getElementById("t-"+nextId);
+    if(el&&el.scrollIntoView){ try{ el.scrollIntoView({block:"center"}); }catch(e){} }
+  } else { window.scrollTo(0,y); }
+}
+
+function timeline(){
+  var h='<div class="topbar"><a class="back" href="#">‹ Everyone</a></div><div class="hero" style="padding-top:0"><h1 class="serif">Full timeline</h1><p>Everything in order, with who is involved. Tap a name for their page.</p></div>';
+  var lastPh=null;
+  SORTED.forEach(function(e){
+    if(e.ph!==lastPh){ h+='<div class="phase">'+esc(PH[e.ph])+'</div>'; lastPh=e.ph; }
+    h+='<div class="tl"><div class="meta"><span class="time">'+esc(e.label)+'</span><span class="place">📍 '+esc(e.place)+'</span></div><h3>'+esc(e.title)+'</h3><div class="chips">'
+      +e.people.map(function(k){ return '<a class="chip" href="#'+k+'">'+esc(PEOPLE[k].name)+'</a>'; }).join("")+'</div></div>';
+  });
+  app.innerHTML=h;
+}
+
+function contacts(){
+  var h='<div class="topbar"><a class="back" href="#">‹ Everyone</a></div><div class="hero" style="padding-top:0"><h1 class="serif">Contacts &amp; cars</h1><p>Tap Call to ring someone.</p></div>';
+  h+='<div class="group"><h2>Cars</h2>';
+  [1,2,3,4].forEach(function(n){
+    var c=CARS[n];
+    h+='<div class="tl"><h3>'+esc(c.title)+'</h3><div class="chips">'+c.members.map(function(m){ return '<a class="chip" href="#'+m+'">'+esc(PEOPLE[m].name)+'</a>'; }).join("")+'</div><div style="color:var(--muted);font-size:14px;margin-top:6px">'+esc(c.note)+'</div></div>';
+  });
+  h+='</div>';
+  function row(name,sub,phone){
+    return '<div class="contact"><div><b>'+esc(name)+'</b><small>'+esc(sub)+' · '+fmtPhone(phone)+'</small></div><a class="call" href="tel:+65'+phone+'">Call</a></div>';
+  }
+  h+='<div class="group"><h2>Bridal party</h2>';
+  ["Wilson","Angelia","Jolene","Yong-Sen","Emil","Sabrina","Lennon","Eric","Yuri","Mindy","Sheryl","Shanice","Kim"].forEach(function(k){
+    h+=row(PEOPLE[k].full,PEOPLE[k].role,PEOPLE[k].phone);
+  });
+  h+='</div><div class="group"><h2>Hotel &amp; vendors</h2>';
+  h+=row("Leanne Kian","Hotel Sales Manager","93367091");
+  h+=row("Jovic","Photographer","97962445");
+  h+=row("Eric Yong","Videographer","91874066");
+  h+=row("Ong Wenwen","Emcee","94592555");
+  h+=row("Sandy Chen","Bride’s make-up artist","98523087");
+  h+=row("3tee Make Up","Mothers’ make-up (2 mums)","87783225");
+  h+=row("Boon Hock","Photobooth","81218204");
+  h+='</div>';
+  app.innerHTML=h;
+}
+
+function reportText(key){
+  var p=PEOPLE[key], tasks=resolve(key), done=[], todo=[];
+  tasks.forEach(function(t){ (doneAt(key,t.id)?done:todo).push(t); });
+  var s="Wedding day update — "+p.name+"\n"+done.length+" of "+tasks.length+" tasks done\n";
+  if(done.length){ s+="\n✅ DONE\n"+done.map(function(t){ return "• "+t.label+" "+t.title+" (ticked "+clock(doneAt(key,t.id))+")"; }).join("\n")+"\n"; }
+  if(todo.length){ s+="\n⬜ STILL TO DO\n"+todo.map(function(t){ return "• "+t.label+" "+t.title; }).join("\n")+"\n"; }
+  else { s+="\n🎉 Everything is done!\n"; }
+  return s;
+}
+function copyText(text,ta){
+  if(navigator.clipboard&&navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(function(){ toast("Copied"); },function(){ fallbackCopy(ta); });
+  } else fallbackCopy(ta);
+}
+function fallbackCopy(ta){
+  try{ ta.readOnly=false; ta.focus(); ta.select(); ta.setSelectionRange(0,ta.value.length); var ok=document.execCommand("copy"); ta.readOnly=true; toast(ok?"Copied":"Press and hold to copy"); }
+  catch(e){ toast("Press and hold to copy"); }
+}
+function openShare(key){
+  var text=reportText(key), ov=document.createElement("div");
+  ov.className="overlay";
+  ov.innerHTML='<div class="sheet" role="dialog" aria-label="Send update"><h2>Send update to GM</h2><p>Pick how to send it — or copy and paste into your group chat.</p>'
+    +'<textarea id="rep" readonly></textarea>'
+    +'<div class="actions"><button class="btn primary" id="wa">WhatsApp</button><button class="btn" id="shr">Share…</button><button class="btn" id="cpy">Copy</button></div>'
+    +'<div class="actions"><button class="btn ghost" id="cls" style="flex:1">Close</button></div></div>';
+  document.body.appendChild(ov);
+  var ta=ov.querySelector("#rep"); ta.value=text;
+  ov.querySelector("#wa").addEventListener("click",function(){
+    var url="https://wa.me/?text="+encodeURIComponent(text), w=null;
+    try{ w=window.open(url,"_blank"); }catch(e){}
+    if(!w){ copyText(text,ta); toast("Couldn’t open WhatsApp — message copied, paste it in"); }
+  });
+  var shr=ov.querySelector("#shr");
+  if(!navigator.share) shr.style.display="none";
+  shr.addEventListener("click",function(){ navigator.share({text:text}).catch(function(){}); });
+  ov.querySelector("#cpy").addEventListener("click",function(){ copyText(text,ta); });
+  function close(){ ov.remove(); }
+  ov.querySelector("#cls").addEventListener("click",close);
+  ov.addEventListener("click",function(e){ if(e.target===ov) close(); });
+}
+
+function route(){
+  var raw=decodeURIComponent((location.hash||"").slice(1)), key=null;
+  Object.keys(PEOPLE).forEach(function(k){ if(k.toLowerCase()===raw.toLowerCase()) key=k; });
+  if(key) person(key);
+  else if(raw==="timeline"){ timeline(); window.scrollTo(0,0); }
+  else if(raw==="contacts"){ contacts(); window.scrollTo(0,0); }
+  else { home(); window.scrollTo(0,0); }
+}
+loadState();
+document.addEventListener("click",function(e){
+  var a=e.target.closest&&e.target.closest("a[href^='#']");
+  if(!a) return;
+  e.preventDefault();
+  var h=a.getAttribute("href");
+  var url=(h==="#")?(location.pathname+location.search):h;
+  try{ history.pushState(null,"",url); }catch(err){ try{ location.hash=h; }catch(e2){} }
+  try{ route(); }catch(e3){ app.innerHTML='<p style="padding:20px">Sorry — something went wrong. Please open the link in Safari or Chrome.</p>'; }
+});
+window.addEventListener("hashchange",route);
+window.addEventListener("popstate",route);
+try{ route(); }catch(err){ app.innerHTML='<p style="padding:20px">Sorry — something went wrong loading this page. Please open the link in Safari or Chrome.</p>'; }
+})();
+</script>
+</body>
+</html>
