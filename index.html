@@ -106,6 +106,11 @@ a{ color:inherit; }
 .flag{ background:var(--warn-bg); color:var(--warn-ink); border-radius:10px; padding:7px 10px; }
 .donetime{ color:var(--ok); font-weight:600; }
 .body li.imp{ list-style:none; margin-left:-20px; background:var(--warn-bg); color:var(--warn-ink); border-radius:8px; padding:5px 9px; font-weight:600; }
+.task.upd{ border:2px solid #d32f2f; padding:11px; }
+.updbadge{ background:#d32f2f; color:#fff; font-size:12px; font-weight:700; letter-spacing:.06em; padding:2px 8px; border-radius:99px; }
+.body li.upd{ list-style:none; margin-left:-20px; background:#ffd6d6; color:#b00020; font-weight:700; border-radius:8px; padding:5px 9px; }
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .body li.upd{ background:#4a1d1d; color:#ff9a9a; } }
+:root[data-theme="dark"] .body li.upd{ background:#4a1d1d; color:#ff9a9a; }
 .footer-actions{ margin-top:26px; display:flex; flex-direction:column; gap:10px; }
 .empty{ text-align:center; color:var(--muted); padding:30px 10px; }
 .tl{ background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:12px; margin-bottom:10px; }
@@ -435,18 +440,22 @@ var EV = [
  who:["BM","GM"],
  s:["The ballroom doors will open — help usher the guests in."]},
 
-{id:"angbao-box", t:760, label:"Before 12:45 PM", place:"Ballroom", ph:"F", title:"Bring the angbao box in",
+{id:"angbao-box", t:760, label:"Before the banquet starts", place:"Ballroom", ph:"F", title:"Bring the angbao box in",
  who:["Yong-Sen","Sindy"],
  s:["!Bring the angbao box into the ballroom before the banquet starts.","Ang Pao IC for the banquet: look after the angbao box."]},
 
-{id:"march1", t:765, label:"12:45 PM", place:"Grand Ballroom", ph:"G", title:"First march-in",
+{id:"child-video", t:794, label:"Before 1:15 PM", place:"Grand Ballroom", ph:"G", title:"Childhood video — before the first march-in",
+ who:["Eric","Lennon"],
+ s:["!AV: play the childhood video before the first march-in (1:15 PM)."]},
+
+{id:"march1", t:795, label:"1:15 PM", place:"Grand Ballroom", ph:"G", title:"First march-in",
  who:["Wilson","Angelia","Wen-Wen","Eric","Lennon"],
  s:["First march-in."],
  per:{"Wen-Wen":{s:["Emcee the first march-in; coordinate with Eric and Lennon (AV)."]},
       "Eric":{s:["AV: coordinate with Wen Wen for the first march-in."]},
       "Lennon":{s:["AV: coordinate with Wen Wen for the first march-in."]}}},
 
-{id:"liaison2", t:766, label:"12:45 PM on", place:"Hotel Ballroom", ph:"G", title:"Main Liaison for the banquet",
+{id:"liaison2", t:766, label:"Banquet", place:"Hotel Ballroom", ph:"G", title:"Main Liaison for the banquet",
  who:["Shanice","Emil"],
  s:["You and Emil are the main liaison for the banquet.","There are 42 bottles of wine in total — they must all be consumed by the end of the event."],
  per:{"Shanice":{s:["You and Emil are the main liaison for the banquet — Emil is your partner for this.","There are 42 bottles of wine in total — they must all be consumed by the end of the event."]},
@@ -456,7 +465,7 @@ var EV = [
  who:["Sabrina","Mindy"],
  s:["DIY Booth IC: look after the DIY station and the photobooth.","Photobooth vendor: Boon Hock."]},
 
-{id:"kahoot", t:790, label:"1:10 PM", place:"Grand Ballroom", ph:"G", title:"Lunch starts — Kahoot (Course #1)",
+{id:"kahoot", t:810, label:"1:30 PM", place:"Grand Ballroom", ph:"G", title:"Lunch starts — Kahoot (Course #1)",
  who:["Wen-Wen","Wilson","Angelia","Emil","Sabrina","Eric","Lennon"],
  s:["Kahoot quiz."],
  per:{"Wen-Wen":{s:["Host the Kahoot quiz."]},
@@ -467,7 +476,7 @@ var EV = [
       "Eric":{s:["AV: assist the emcee (press the buttons)."]},
       "Lennon":{s:["AV: assist the emcee (press the buttons)."]}}},
 
-{id:"soup", t:805, label:"1:25 PM", place:"Grand Ballroom", ph:"G", title:"Course #2 (soup) — bride changes",
+{id:"soup", t:825, label:"1:45 PM", place:"Grand Ballroom", ph:"G", title:"Course #2 (soup) — bride changes",
  who:["Angelia","Mindy","Jolene","Wen-Wen"],
  s:["Bride leaves to change."],
  per:{"Angelia":{s:["Leave to change during the soup course.","Mindy and Jolene go with you."]},
@@ -476,25 +485,25 @@ var EV = [
       "Wen-Wen":{s:["Run-down note: “Emcee to give ang bao”."],
                  flag:"The run-down only says “Emcee to give ang bao” — confirm with GM who gives it, and to whom."}}},
 
-{id:"guess-song", t:810, label:"1:25–2:00 PM", place:"Grand Ballroom", ph:"G", title:"Guess the Song (Course #3)",
+{id:"guess-song", t:826, label:"1:45–2:15 PM", place:"Grand Ballroom", ph:"G", title:"Guess the Song (Course #3)",
  who:["Wen-Wen","Emil","Sabrina"],
  s:["Guess the Song game."],
  per:{"Wen-Wen":{s:["Host the Guess the Song game and give out the prize."]},
       "Emil":{s:["Stand by with the prizes.","The emcee will give out the prize."]},
       "Sabrina":{s:["Game IC: support the emcee."]}}},
 
-{id:"march2", t:840, label:"2:00 PM", place:"Outside the Grand Ballroom", ph:"G", title:"Stand by for the second march-in (Course #4)",
+{id:"march2", t:850, label:"2:10 PM", place:"Outside the Grand Ballroom", ph:"G", title:"Stand by for the second march-in (Course #4)",
  who:["Wilson","Angelia","BM","GM","Wen-Wen","Eric","Lennon"],
  s:["Second march-in."],
- per:{"Wilson":{s:["!Get ready outside the Grand Ballroom at 2:00 PM.","2:05 PM — second march-in, with the march-in song.","Go straight to the stage for the champagne pouring and lover’s toast, followed by the traditional Yum Sheng."]},
-      "Angelia":{s:["!Get ready outside the Grand Ballroom at 2:00 PM.","2:05 PM — second march-in, with the march-in song.","Go straight to the stage for the champagne pouring and lover’s toast, followed by the traditional Yum Sheng."]},
-      "BM":{s:["!Be ready along the aisle by 2:00 PM.","!Point the bubble gun upwards."], b:["Bubble gun"]},
-      "GM":{s:["!Be ready along the aisle by 2:00 PM.","!Point the bubble gun upwards."], b:["Bubble gun"]},
+ per:{"Wilson":{s:["!Get ready outside the Grand Ballroom at 2:10 PM.","2:15 PM — second march-in, with the march-in song.","Go straight to the stage for the champagne pouring and lover’s toast, followed by the traditional Yum Sheng."]},
+      "Angelia":{s:["!Get ready outside the Grand Ballroom at 2:10 PM.","2:15 PM — second march-in, with the march-in song.","Go straight to the stage for the champagne pouring and lover’s toast, followed by the traditional Yum Sheng."]},
+      "BM":{s:["!Be ready along the aisle by 2:10 PM.","!Point the bubble gun upwards."], b:["Bubble gun"]},
+      "GM":{s:["!Be ready along the aisle by 2:10 PM.","!Point the bubble gun upwards."], b:["Bubble gun"]},
       "Wen-Wen":{s:["Announce the arrival of the groom and bride."]},
-      "Eric":{s:["AV: play the second march-in song at 2:05 PM."]},
-      "Lennon":{s:["AV: play the second march-in song at 2:05 PM."]}}},
+      "Eric":{s:["AV: play the second march-in song at 2:15 PM."]},
+      "Lennon":{s:["AV: play the second march-in song at 2:15 PM."]}}},
 
-{id:"sde", t:855, label:"2:15 PM", place:"Grand Ballroom", ph:"G", title:"Same Day Edit video",
+{id:"sde", t:860, label:"2:20 PM", place:"Grand Ballroom", ph:"G", title:"Same Day Edit video",
  who:["Wen-Wen","Eric","Lennon","Eric-Yong","Wilson","Angelia"],
  s:["Same Day Edit (Morning Highlights) video, about 5 minutes."],
  per:{"Wen-Wen":{s:["Present the Morning Highlights (SDE intro)."]},
@@ -504,11 +513,17 @@ var EV = [
       "Wilson":{s:["Watch the Same Day Edit (about 5 min), then the Yum Seng toast (10 min)."]},
       "Angelia":{s:["Watch the Same Day Edit (about 5 min), then the Yum Seng toast (10 min)."]}}},
 
-{id:"speech", t:870, label:"2:30 PM", place:"Grand Ballroom", ph:"G", title:"Couple’s speech (Course #5)",
+{id:"speech", t:880, label:"2:40 PM", place:"Grand Ballroom", ph:"G", title:"Couple’s speech (Course #5)",
  who:["Wilson","Angelia"],
  s:["Couple’s speech — about 5 minutes."]},
 
-{id:"photo-announce", t:885, label:"2:45 PM", place:"Grand Ballroom", ph:"G", title:"Table-to-table photo taking begins",
+{id:"parents-video", t:882, label:"After the couple’s speech", place:"Grand Ballroom", ph:"G", title:"Parents’ video — after the couple’s speech",
+ who:["Eric","Lennon","Wilson","Angelia"],
+ s:["!AV: play the parents’ video right after the couple’s speech."],
+ per:{"Wilson":{s:["The parents’ video plays right after your speech."]},
+      "Angelia":{s:["The parents’ video plays right after your speech."]}}},
+
+{id:"photo-announce", t:890, label:"2:50 PM", place:"Grand Ballroom", ph:"G", title:"Table-to-table photo taking begins",
  who:["Wen-Wen","Emil","Yong-Sen","GM"],
  s:["Support Emil and Yong Sen with the table-to-table photo-taking."],
  per:{"Wen-Wen":{s:["Announce the photo-taking so it is easier to facilitate.","Live band session around this time."]},
@@ -553,7 +568,7 @@ function resolve(key){
     var bring=(me.b||base.b||e.b||[]).slice();
     var others=e.people.filter(function(x){ return x!==key; });
     list.push({
-      id:e.id, t:e.t, label:e.label, place:e.place, ph:e.ph,
+      id:e.id, t:e.t, upd:!!e.upd, label:e.label, place:e.place, ph:e.ph,
       title:me.title||base.title||e.title,
       steps:steps, bring:bring,
       flag:me.flag||base.flag||"",
@@ -627,13 +642,13 @@ function home(){
 }
 
 function taskHTML(key,t,nextId){
-  var d=doneAt(key,t.id), cls="task"+(d?" done":"")+(!d&&t.id===nextId?" next":"");
+  var d=doneAt(key,t.id), cls="task"+(d?" done":"")+(!d&&t.id===nextId?" next":"")+(t.upd?" upd":"");
   var h='<article class="'+cls+'" id="t-'+t.id+'">'
     +'<button class="check" data-id="'+t.id+'" aria-pressed="'+(d?"true":"false")+'" aria-label="'+(d?"Undo: ":"Mark done: ")+esc(t.title)+'">✓</button>'
     +'<div class="body"><div class="meta"><span class="time">'+esc(t.label)+'</span><span class="place">📍 '+esc(t.place)+'</span>'
-    +(!d&&t.id===nextId?'<span class="badge">Next up</span>':'')+'</div>'
+    +(!d&&t.id===nextId?'<span class="badge">Next up</span>':'')+(t.upd?'<span class="updbadge">UPDATED</span>':'')+'</div>'
     +'<h3>'+(/must/i.test(t.title)?'⚠️ ':'')+esc(t.title)+'</h3>';
-  if(t.steps.length){ h+='<ul>'+t.steps.map(function(s){ var imp=s.charAt(0)==="!"||/make sure|must|ensure/i.test(s); if(s.charAt(0)==="!") s=s.slice(1); return imp?'<li class="imp">⚠️ '+esc(s)+'</li>':'<li>'+esc(s)+'</li>'; }).join("")+'</ul>'; }
+  if(t.steps.length){ h+='<ul>'+t.steps.map(function(s){ var imp=false,upd=false; while(s.charAt(0)==="!"||s.charAt(0)==="~"){ if(s.charAt(0)==="!") imp=true; else upd=true; s=s.slice(1); } imp=imp||/make sure|must|ensure/i.test(s); return upd?'<li class="upd">🔴 '+esc(s)+'</li>':(imp?'<li class="imp">⚠️ '+esc(s)+'</li>':'<li>'+esc(s)+'</li>'); }).join("")+'</ul>'; }
   if(t.bring.length){ h+='<div class="bring">🎒 <b>Bring:</b> '+t.bring.map(esc).join(" · ")+'</div>'; }
   if(t.others.length&&t.others.length<=5){ h+='<div class="with">👥 With: '+t.others.map(function(o){ return esc(PEOPLE[o].name); }).join(", ")+'</div>'; }
   if(t.flag){ h+='<div class="flag">⚠️ '+esc(t.flag)+'</div>'; }
