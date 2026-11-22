@@ -111,6 +111,19 @@ a{ color:inherit; }
 .body li.upd{ list-style:none; margin-left:-20px; background:#ffd6d6; color:#b00020; font-weight:700; border-radius:8px; padding:5px 9px; }
 @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .body li.upd{ background:#4a1d1d; color:#ff9a9a; } }
 :root[data-theme="dark"] .body li.upd{ background:#4a1d1d; color:#ff9a9a; }
+.links{ flex-wrap:wrap; }
+.links a{ min-width:30%; }
+.lg-sec{ margin-top:22px; }
+.lg-sec h2{ font-size:18px; margin:0 4px 2px; }
+.lg-note{ color:var(--muted); font-size:14px; margin:0 4px 8px; }
+.lg-count{ color:var(--muted); font-size:13px; margin:0 4px 8px; }
+.item{ display:flex; gap:12px; align-items:center; background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:9px 12px; margin-bottom:8px; }
+.item .check{ width:38px; height:38px; font-size:22px; border-radius:11px; }
+.item.done{ background:var(--ok-bg); border-color:transparent; }
+.item.done .txt{ opacity:.6; text-decoration:line-through; text-decoration-thickness:1px; }
+.item.done .check{ background:var(--ok); border-color:var(--ok); color:#fff; }
+.item .txt{ flex:1; min-width:0; }
+.item .warnmark{ margin-right:4px; }
 .footer-actions{ margin-top:26px; display:flex; flex-direction:column; gap:10px; }
 .empty{ text-align:center; color:var(--muted); padding:30px 10px; }
 .tl{ background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:12px; margin-bottom:10px; }
@@ -653,7 +666,7 @@ function home(){
     });
     h+='</div></div>';
   });
-  h+='<div class="links"><a href="#timeline">Full timeline</a><a href="#contacts">Cars</a></div>';
+  h+='<div class="links"><a href="#timeline">Full timeline</a><a href="#contacts">Cars</a><a href="#logistics">Logistics</a></div>';
   h+='<div class="tip"><b>How ticking works:</b> your ticks are saved on this phone, so closing the page won’t lose them. Only you can see your own ticks.</div>';
   app.innerHTML=h;
 }
@@ -686,7 +699,7 @@ function person(key){
     h+='<div class="carbox">🚗 <b>'+esc(c.title)+'</b><br>'+c.members.map(function(m){ return esc(PEOPLE[m].name); }).join(", ")+'<br><span style="color:var(--muted)">'+esc(c.note)+'</span></div>';
   }
   h+='</div><div id="tasks"></div>';
-  h+='<div class="footer-actions"><a class="btn" style="text-align:center;text-decoration:none" href="#contacts">🚗 Cars</a><a class="btn" style="text-align:center;text-decoration:none" href="#timeline">🕒 Full timeline</a><button class="btn ghost" id="reset">Reset my ticks</button></div>';
+  h+='<div class="footer-actions"><a class="btn" style="text-align:center;text-decoration:none" href="#contacts">🚗 Cars</a><a class="btn" style="text-align:center;text-decoration:none" href="#timeline">🕒 Full timeline</a><a class="btn" style="text-align:center;text-decoration:none" href="#logistics">📦 Logistics checklist</a><button class="btn ghost" id="reset">Reset my ticks</button></div>';
   app.innerHTML=h;
   renderTasks(key,true);
 
@@ -746,12 +759,132 @@ function contacts(){
   app.innerHTML=h;
 }
 
+var LOGI = [
+ {t:"For the Groom",n:"The sheet has no In-charge, Collection date or Location filled in yet.",i:[
+  "Bridal car decoration and décor for other cars",
+  "Make sure the bridal car is fully pumped",
+  "Boutonniere (groom) — 1 pin from morning",
+  "Boutonniere (parents) x 5 — bring to Pan Pac",
+  "Bouquet for the bride",
+  "Cocktail gown",
+  "First suit",
+  "Second suit",
+  "Extra white shirt",
+  "Kua (can put at Tengah)",
+  "Shoes, watch, Kua shoes x 1",
+  "Outfits for the groomsmen (wedding party)",
+  "Umbrella (ensure that there are some in the car)",
+  "Breakfast and light snacks, from breakfast till after the tea ceremony",
+  "Decoration for the house",
+  "Sweet drink or tang yuan",
+  "Tea for the tea ceremony",
+  "Cup and tea for the tea ceremony",
+  "Set up for the An Zhuang",
+  "Angbaos (refer to the list for details)",
+  "12 喜 oranges in a basket"]},
+ {t:"For the Bride",n:"",i:[
+  "White gown",
+  "Shoes",
+  "Snacks for the bride to munch, if needed",
+  "Auspicious drink or food when receiving the bride",
+  "Red umbrella to shelter the bride from home to the car",
+  "Fan for the bride to throw out and for Mummy to pick up",
+  "Outfits for the sisters (wedding party)",
+  "Breakfast and light snacks, from breakfast till after the morning session",
+  "Drinks, from breakfast till after the morning session",
+  "Decoration for the house",
+  "Make-up stuff for touch-ups, tissue, wet tissue, oil blotters",
+  "Sewing kit with needles, scissors, thread, buttons and safety pins",
+  "Mini fan to cool down",
+  "Hair pins",
+  "Fashion tapes",
+  "Mint",
+  "Handheld battery-operated fan",
+  "Water bottle + plain water for the bride to drink"]},
+ {t:"Moving out of Tengah to Pan Pac",n:"Groom’s personal stuff.",i:[
+  "Suits x 2",
+  "White shirt x 2",
+  "Kua x 2, cocktail dress x 1 and shoes",
+  "Grooming set (comb, hair wax, tissue, wet tissue, oil blotters)",
+  "Staycay bag",
+  "Separate handbag to keep all angbaos and gifts",
+  "Pyjamas, bedroom slippers, towel",
+  "Corsages x 5"]},
+ {t:"Moving out of CCK to Tengah",n:"Bride’s personal stuff.",i:[
+  "Separate handbag to keep all angbaos and gifts",
+  "Pyjamas, bedroom slippers, towel",
+  "Staycay bag",
+  "Kneeling cushion"]},
+ {t:"Reception area items",n:"Done by the bridesmaids; the groomsmen help carry the items from the carpark to the reception area. Areas to decorate: painting area · angbao box + registration area · reception table.",i:[
+  "Wedding album x 1",
+  "Wedding landscape photo",
+  "Wedding frames x 5",
+  "Pens for the guestbooks",
+  "Guest list / table seating arrangement — 5 printed copies",
+  "Stationery kit (scissors, double-sided tape, clear tape, blue tac, glue stick, ruler, pen knife)",
+  "Reception table décor stuff (PDF checklist attached)",
+  "Decor table linen",
+  "Angbao box x 2 (provided by the hotel)",
+  "Easel stands x 5",
+  "2m 囍 decoration",
+  "Easel stands x 3 (provided by the hotel)"]},
+ {t:"Angbao checklist",n:"Quantities are not filled in yet in the sheet.",i:[
+  "Photographer, videographer",
+  "Emcee",
+  "Make-up artist(s)",
+  "Hotel main coordinator and floor manager at the banquet",
+  "Floor manager and assistant during the tea ceremony",
+  "Bridal car driver",
+  "Door opener",
+  "Bed blesser",
+  "Gate crashers",
+  "Extra angbaos to be given for SVs",
+  "Hair combers",
+  "Bed prepper"]}
+];
+
+function logisticsView(){
+  app.removeEventListener("click",lgClick);
+  var total=0, done=0;
+  LOGI.forEach(function(s,si){ s.i.forEach(function(x,ii){ total++; if(doneAt("logistics",si+"-"+ii)) done++; }); });
+  var pct=total?Math.round(done/total*100):0;
+  var h='<div class="topbar"><a class="back" href="#">‹ Everyone</a></div>'
+   +'<div class="head"><h1 class="serif">Logistics checklist</h1><div class="role">Things to prepare and bring</div>'
+   +'<div class="progress"><div class="row"><span>'+done+' of '+total+' done</span><span>'+pct+'%</span></div><div class="bar"><i style="width:'+pct+'%"></i></div></div></div>';
+  LOGI.forEach(function(s,si){
+    var sd=0; s.i.forEach(function(x,ii){ if(doneAt("logistics",si+"-"+ii)) sd++; });
+    h+='<div class="lg-sec"><h2>'+esc(s.t)+'</h2>'+(s.n?'<div class="lg-note">'+esc(s.n)+'</div>':'')+'<div class="lg-count">'+sd+' of '+s.i.length+' done</div>';
+    s.i.forEach(function(x,ii){
+      var id=si+"-"+ii, d=doneAt("logistics",id), warn=/make sure|ensure/i.test(x);
+      h+='<div class="item'+(d?' done':'')+'"><button class="check" data-id="'+id+'" aria-pressed="'+(d?'true':'false')+'" aria-label="'+(d?'Undo: ':'Mark done: ')+esc(x)+'">✓</button>'
+        +'<div class="txt">'+(warn?'<span class="warnmark">⚠️</span>':'')+esc(x)+'</div></div>';
+    });
+    h+='</div>';
+  });
+  h+='<div class="footer-actions"><button class="btn ghost" id="lgreset">Reset logistics ticks</button></div>';
+  var y=window.scrollY;
+  app.innerHTML=h;
+  window.scrollTo(0,y);
+  app.addEventListener("click",lgClick);
+  var rb=document.getElementById("lgreset"), armed=false, timer;
+  rb.addEventListener("click",function(){
+    if(!armed){ armed=true; rb.textContent="Tap again to clear all logistics ticks"; timer=setTimeout(function(){ armed=false; rb.textContent="Reset logistics ticks"; },3500); }
+    else{ clearTimeout(timer); delete mem.logistics; saveState(); logisticsView(); toast("Ticks cleared"); }
+  });
+}
+function lgClick(ev){
+  var b=ev.target.closest&&ev.target.closest(".check");
+  if(!b||!document.getElementById("lgreset")) return;
+  toggle("logistics",b.getAttribute("data-id")); logisticsView();
+}
+
 function route(){
   var raw=decodeURIComponent((location.hash||"").slice(1)), key=null;
   Object.keys(PEOPLE).forEach(function(k){ if(k.toLowerCase()===raw.toLowerCase()) key=k; });
   if(key) person(key);
   else if(raw==="timeline"){ timeline(); window.scrollTo(0,0); }
   else if(raw==="contacts"){ contacts(); window.scrollTo(0,0); }
+  else if(raw==="logistics"){ logisticsView(); window.scrollTo(0,0); }
   else { home(); window.scrollTo(0,0); }
 }
 loadState();
